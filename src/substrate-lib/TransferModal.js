@@ -25,7 +25,7 @@ const TransferModal = props => {
   }
 
   return <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}
-                trigger={<Button basic color="blue">Transfer</Button>}>
+                trigger={<Button basic color="blue" size='mini'>Transfer</Button>}>
 
     {/* The title of the modal */}
     <Modal.Header>Kitty Transfer</Modal.Header>

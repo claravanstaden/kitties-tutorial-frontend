@@ -17,7 +17,7 @@ const BreedModal = props => {
   };
 
   return <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}
-                trigger={<Button basic color='blue'>Breed</Button>}>
+                trigger={<Button basic color='blue' size='mini'>Breed</Button>}>
 
     {/* The title of the modal */}
     <Modal.Header>Kitty Set Price</Modal.Header>

@@ -65,13 +65,9 @@ const KittyCard = props => {
       </Card.Description>
     </Card.Content>
     {/* Render the transfer button using TransferModal */}
-    {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>{
+    {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
       <TransferModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
-    }</Card.Content>}
-    {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
       <SetPriceModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
-    </Card.Content>}
-    {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
       <BreedModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
     </Card.Content>}
     {owner !== accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>

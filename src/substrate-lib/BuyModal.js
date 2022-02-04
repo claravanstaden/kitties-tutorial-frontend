@@ -17,7 +17,7 @@ const BuyModal = props => {
   };
 
   return <Modal onClose={() => setOpen(false)} onOpen={() => setOpen(true)} open={open}
-                trigger={<Button basic color='blue'>Buy</Button>}>
+                trigger={<Button basic color='blue' size='mini'>Buy</Button>}>
 
     {/* The title of the modal */}
     <Modal.Header>Kitty Set Price</Modal.Header>
