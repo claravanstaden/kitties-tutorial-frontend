@@ -12,6 +12,8 @@ import {
 import KittyAvatar from './KittyAvatar'
 import SetPriceModal from './substrate-lib/SetPriceModal'
 import TransferModal from './substrate-lib/TransferModal'
+import BreedModal from './substrate-lib/BreedModal'
+import BuyModal from './substrate-lib/BuyModal'
 
 // Use props
 const KittyCard = props => {
@@ -68,7 +70,13 @@ const KittyCard = props => {
     }</Card.Content>}
     {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
       <SetPriceModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
-      </Card.Content>}
+    </Card.Content>}
+    {owner === accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
+      <BreedModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
+    </Card.Content>}
+    {owner !== accountPair.address && <Card.Content extra style={{ textAlign: 'center' }}>
+      <BuyModal kitty={kitty} accountPair={accountPair} setStatus={setStatus}/>
+    </Card.Content>}
   </Card>
 }
 
