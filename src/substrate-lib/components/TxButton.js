@@ -10,6 +10,7 @@ function TxButton ({
   accountPair = null,
   label,
   setStatus,
+  onClick: txOnClickHandler = null,
   color = 'blue',
   style = null,
   type = 'QUERY',
@@ -84,7 +85,7 @@ function TxButton ({
   const uncheckedSudoTx = async () => {
     const fromAcct = await getFromAcct();
     const txExecute =
-        api.tx.sudo.sudoUncheckedWeight(api.tx[palletRpc][callable](...inputParams), 0);
+      api.tx.sudo.sudoUncheckedWeight(api.tx[palletRpc][callable](...inputParams), 0);
 
     const unsub = txExecute.signAndSend(fromAcct, txResHandler)
       .catch(txErrHandler);
@@ -138,7 +139,7 @@ function TxButton ({
   };
 
   const transaction = async () => {
-    if (typeof unsub === 'function') {
+    if (unsub) {
       unsub();
       setUnsub(null);
     }
@@ -152,6 +153,10 @@ function TxButton ({
     (isQuery() && query()) ||
     (isRpc() && rpc()) ||
     (isConstant() && constant());
+
+    if (txOnClickHandler && typeof txOnClickHandler === 'function') {
+      txOnClickHandler(unsub);
+    }
   };
 
   const transformParams = (paramFields, inputParams, opts = { emptyAsNull: true }) => {
